@@ -55,6 +55,7 @@ public class Enemy : MonoBehaviour
                 savedTime = Time.time;
                 rb.gravityScale = 0;
                 rb.velocity = new Vector3(0, 0, 0);
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
                 //landing anim
             }
             else if (!spiderJumping && savedTime + spiderJumpCooldown < Time.time)    //if the cooldown is over
@@ -64,7 +65,8 @@ public class Enemy : MonoBehaviour
                 Vector3 endLocation = new Vector3(unitTowardsTarget.x, unitTowardsTarget.y * 2 / 3, 0) * spiderJumpDist + new Vector3(rand.x, rand.y*2/3, 0) * spiderJumpStddv;
                 spiderNextY = transform.position.y + endLocation.y;
                 rb.velocity = spiderJumpDist * new Vector3(unitTowardsTarget.x, 2 + unitTowardsTarget.y * 2 / 3, 0);
-                rb.gravityScale = 2;
+                rb.gravityScale = 4;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                 //jumping anim
             }
         }

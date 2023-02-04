@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] float aveCooldown, cooldownStddv, initCooldown;
+    [SerializeField] int spawnCap;
 
     float timeOfLastSpawn;
     float cooldown;
@@ -28,9 +29,15 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private void spawn()
+    private bool spawn()
     {
-        Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        if (GetComponentsInChildren<Transform>().Length >= spawnCap)
+        {
+            return false;
+        }
+        GameObject e = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        e.transform.parent = transform;
+        return true;
     }
 
     private void activate()

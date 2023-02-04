@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 579942832672692191}
   - component: {fileID: 7642310265554157078}
   - component: {fileID: -7048692293248056991}
+  - component: {fileID: -3781186698225971392}
   m_Layer: 0
   m_Name: Spider
   m_TagString: Untagged
@@ -28,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 9097800485643778771}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.0696406, y: 2.85265, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.6496875, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.4, y: 0.32484376, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -103,8 +104,11 @@ MonoBehaviour:
   flyAccelNoise: 0
   flyMaxSpeed: 0
   spiderJumpCooldown: 1
-  spiderJumpDist: 5
+  spiderJumpDist: 6
   spiderJumpStddv: 0.5
+  wormCooldown: 10
+  wormForecast: 2
+  wormAttack: 1
 --- !u!50 &-7048692293248056991
 Rigidbody2D:
   serializedVersion: 4
@@ -125,4 +129,20 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!70 &-3781186698225971392
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9097800485643778771}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: fcd8594154c2041d6a1692aba7403d3a, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 1.9999999}
+  m_Direction: 0

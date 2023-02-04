@@ -36,5 +36,16 @@ public class Player : MonoBehaviour
 
         transform.position += movement * speed * Time.deltaTime;
 
+        attack();
+
+    }
+
+    private void attack()
+    {
+
+
+        
+
+
     }
 }

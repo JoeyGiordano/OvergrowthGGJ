@@ -308,6 +308,7 @@ MonoBehaviour:
   aveCooldown: 5
   cooldownStddv: 3
   initCooldown: 3
+  spawnCap: 5
 --- !u!1 &2073375709
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +343,7 @@ MonoBehaviour:
   aveCooldown: 5
   cooldownStddv: 3
   initCooldown: 3
+  spawnCap: 4
 --- !u!212 &2073375711
 SpriteRenderer:
   m_ObjectHideFlags: 0
