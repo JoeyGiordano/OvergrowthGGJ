@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 1;
     //public Rigidbody2D rb;
 
+    private bool hasKey = false;
+
 
     // Update is called once per frame
     void Update()
@@ -36,5 +38,12 @@ public class PlayerMovement : MonoBehaviour
         
         // print(moveSpeed*moveDirection);
         GetComponent<Rigidbody2D>().velocity = moveSpeed * moveDirection;
+    }
+
+    public bool getHasKey(){
+        return hasKey;
+    }
+    public void obtainKey(){
+        hasKey = true;
     }
 }
