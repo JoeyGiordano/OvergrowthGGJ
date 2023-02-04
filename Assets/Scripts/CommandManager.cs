@@ -64,7 +64,9 @@ public class CommandManager : MonoBehaviour
     private void setupDevTest(){
         LevelManager lm = LevelManager.Instance;
         foreach(Room r in lm.getRooms()){
-            r.setRoomStatus(Room.RoomStatus.cleared);
+            if(r.getRoomName() == "src"){
+                r.setRoomStatus(Room.RoomStatus.cleared);
+            }
         }
         allowedLocations = lm.getRoomNames();
         allowedWeapons.Add("gun");

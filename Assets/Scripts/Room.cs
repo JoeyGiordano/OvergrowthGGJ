@@ -20,7 +20,7 @@ public class Room : MonoBehaviour
 
     //name of current room
     [SerializeField]
-    private string roomName;
+    private string roomName = "";
 
     
     //list of rooms connected to current room; current_room -> next_room
@@ -32,17 +32,20 @@ public class Room : MonoBehaviour
     private string layout;
 
     private RoomStatus roomStatus = RoomStatus.unvisited;
+    GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(roomName == "src"){
+            playerIsInRoom();
+        }
     }
     public string getRoomName(){
         return roomName;
@@ -52,5 +55,24 @@ public class Room : MonoBehaviour
     }
     public void setRoomStatus(RoomStatus status){
         roomStatus = status;
+        if(status == RoomStatus.cleared){
+            CameraController.Instance.setPlayerPositionState(CameraController.PlayerPositionState.PlayerIsInHallway, player.transform);
+        }
     }
+
+    private bool playerIsInRoom(){
+        return false;
+    }
+    private void OnTriggerEnter2D(Collider2D other){
+        print(roomStatus);
+        if(roomStatus != RoomStatus.cleared){
+            CameraController.Instance.setPlayerPositionState(CameraController.PlayerPositionState.PlayerIsInRoom, this.transform);
+        }
+    }
+    private void OnTriggerStay2D(Collider2D other){
+        if(Input.GetKey(KeyCode.L)){
+            setRoomStatus(RoomStatus.cleared);
+        }
+    }
+    
 }
