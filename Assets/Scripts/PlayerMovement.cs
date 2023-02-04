@@ -6,11 +6,16 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public float moveSpeed = 1;
-    //public Rigidbody2D rb;
+    public Animator animator;
+
+    private void Start() 
+    {
+        animator = GetComponent<Animator>();
+    }
 
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Vector3 moveDirection = Vector3.zero;
 
@@ -36,5 +41,9 @@ public class PlayerMovement : MonoBehaviour
         
         print(moveSpeed*moveDirection);
         GetComponent<Rigidbody2D>().velocity = moveSpeed * moveDirection;
+
+        animator.SetFloat("Horizontal", moveDirection.x);
+        animator.SetFloat("Vertical", moveDirection.y);
+        animator.SetFloat("Speed", moveDirection.sqrMagnitude);
     }
 }
