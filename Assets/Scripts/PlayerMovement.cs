@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float moveSpeed = 5f;
+    public float moveSpeed = 1;
     //public Rigidbody2D rb;
 
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 moveDirection = Vector2.zero;
+        Vector3 moveDirection = Vector3.zero;
 
         if (Input.GetKey(KeyCode.A))
         {
@@ -32,8 +32,9 @@ public class PlayerMovement : MonoBehaviour
             moveDirection.y = -1;
         }
         
-
         moveDirection.Normalize();
+        
+        print(moveSpeed*moveDirection);
         GetComponent<Rigidbody2D>().velocity = moveSpeed * moveDirection;
     }
 }
