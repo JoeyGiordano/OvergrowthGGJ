@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using TMPro;
 
-public class ScrollingScript : MonoBehaviour
+public class Terminal : MonoBehaviour
 {
     /*
      * This class is a generic text scroller class for Unity. All of the important components
@@ -35,6 +35,10 @@ public class ScrollingScript : MonoBehaviour
         // This field represents an external component you will need to attach to the object this script is attached to
     [SerializeField] GameObject[] textObjects;
 
+
+        // This field just represents the terminal object so that the script can disable it...
+    [SerializeField] GameObject terminalObject;
+
     
         // All variables from here and below are not important to your understanding of how to use this script
     string atWrd;
@@ -48,6 +52,8 @@ public class ScrollingScript : MonoBehaviour
     List<Transform> textPositions;
     int atTxt;
     TextMeshPro displayedText;
+    bool writing;
+    float startTime;
 
     // Start is called before the first frame update
     void Start()
@@ -81,25 +87,22 @@ public class ScrollingScript : MonoBehaviour
                 if (lineQueue.Count == 0)
                 {
                     reading = false;
+                    startTime = Time.time;
                 }
                 else
                 {
+                    // Takes next word and shifts up other lines when necessary
                     atWrd = lineQueue.Dequeue();
-                    displayedText = texts[atTxt % texts.Count];
-                    displayedText.text = "";
-                    if(atTxt >= texts.Count)
-                    {
-                        foreach(Transform t in textPositions)
-                        {
-                            t.position = new Vector3(t.parent.position.x, t.position.y + 2, t.position.z);
-                        }
-                        textPositions[atTxt % texts.Count].position = new Vector3(textPositions[atTxt % texts.Count].parent.position.x, -2.5F, textPositions[atTxt%texts.Count].position.z);
-                    }
-                    atTxt++;
+                    shiftLines();
                     active = true;
                     timeToUpdate = framesPerCharacter;
                     at = 0;
                     curWord = "";
+                    if (atWrd.Contains('$'))
+                    {
+                        at = atWrd.IndexOf('$');
+                        curWord = atWrd.Substring(0, at);
+                    }
                 }
             }
             else
@@ -109,7 +112,7 @@ public class ScrollingScript : MonoBehaviour
                 if (timeToUpdate == 0)
                 {
                     // Update the scrolling text
-                    
+
                     char toAdd = atWrd[at];
                     at++;
                     timeToUpdate = framesPerCharacter;
@@ -127,14 +130,78 @@ public class ScrollingScript : MonoBehaviour
                 }
             }
         }
+        else if(writing)
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+
+                writing = false;
+                if (curWord == "")
+                {
+                    terminalObject.SetActive(false);
+                    return;
+                }
+                // You can figure out what you want to do with the command here...
+                startTime = Time.time;
+            }
+            foreach (char c in Input.inputString)
+            {
+                if (c == '\b') // has backspace/delete been pressed?
+                {
+                    if (curWord.Length != 0)
+                    {
+                        curWord = curWord.Substring(0, curWord.Length - 1);
+                    }
+                }
+                else if(curWord.Length <= 40)
+                {
+                    curWord += c;
+                }
+            }
+            displayedText.text = "C:Alex:-$ " + curWord;
+        }
+        else if (Time.time - startTime >= 3)
+        {
+            terminalObject.SetActive(false);
+        }
     }
 
-    // Alternative method if you want to send in a script via some other script...
+    private void shiftLines()
+    {
+        displayedText = texts[atTxt % texts.Count];
+        displayedText.text = "";
+        if (atTxt >= texts.Count)
+        {
+            if (atTxt == 2 * texts.Count)
+                atTxt = texts.Count;
+            foreach (Transform t in textPositions)
+            {
+                t.position = new Vector3(t.parent.position.x, t.position.y + 2, t.position.z);
+            }
+            textPositions[atTxt % texts.Count].position = new Vector3(textPositions[atTxt % texts.Count].parent.position.x, -2.5F, textPositions[atTxt % texts.Count].position.z);
+        }
+        atTxt++; 
+    }
+
+    // Spawns new lines in the terminal in accordance with the array sent in
     public void addToQueue(string[] nextLines)
     {
         foreach (string s in nextLines) {
             lineQueue.Enqueue(s);
         }
         reading = true;
+    }
+
+    public void beginWriting()
+    {
+        if (!reading)
+        {
+            if (!writing)
+            {
+                shiftLines();
+                curWord = "";
+            }
+            writing = true;
+        }
     }
 }

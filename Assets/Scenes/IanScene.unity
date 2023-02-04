@@ -479,33 +479,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 785138655}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eca46b207a9587b4c8d7e95f8d524753, type: 3}
+  m_Script: {fileID: 11500000, guid: f73b0a02e5e033e4abc18f5de2fc8ed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   framesPerCharacter: 1
   lineQueueBuffer:
-  - aaaaaaaaaaaaaaaa
-  - bbbbbbbbbbbbbbb
-  - cccccccccccccc
-  - ddddddddddddd
-  - eeeeeeeeeeee
-  - ffffffffffffff
-  - gggggggggg
-  - hhhhhhhhh
-  - iiiiiiiii
-  - jjjjjjjj
-  - kkkkk
-  - lllll
-  - mmm
-  - nn
-  - o
-  - penis
+  - C:User:-$ aaaaaaa
+  - C:User:-$ bbbbbbb
+  - C:User:-$ ccccccc
   tick: {fileID: 0}
   textObjects:
   - {fileID: 1295972852}
   - {fileID: 230951353}
   - {fileID: 1981999073}
   - {fileID: 1317012326}
+  terminalObject: {fileID: 1970818836}
 --- !u!1 &851823386
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,6 +505,7 @@ GameObject:
   - component: {fileID: 851823389}
   - component: {fileID: 851823388}
   - component: {fileID: 851823387}
+  - component: {fileID: 851823390}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -590,6 +579,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &851823390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851823386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdaa9ec180bab2a4da2998fb3eacb4aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terminalObject: {fileID: 1970818836}
+  terminalWriter: {fileID: 785138657}
 --- !u!1 &1295972852
 GameObject:
   m_ObjectHideFlags: 0
