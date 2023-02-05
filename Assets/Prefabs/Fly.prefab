@@ -10,13 +10,15 @@ GameObject:
   m_Component:
   - component: {fileID: 5648069071260464150}
   - component: {fileID: 5648069071260464151}
+  - component: {fileID: -4327613071058060897}
   - component: {fileID: 5648069071260464616}
   - component: {fileID: 5648069071260464149}
   - component: {fileID: -7465568420912413537}
   - component: {fileID: 8972617299413848988}
+  - component: {fileID: 7956031529069282360}
   m_Layer: 0
   m_Name: Fly
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,6 +90,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-4327613071058060897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5648069071260464617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b099eb2682501a42b0e217c48efc491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  iFrameAmount: 0
 --- !u!114 &5648069071260464616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,3 +183,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7956031529069282360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5648069071260464617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 377edcda8755d114c90c985b910fbe75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionKeys:
+  - Player
+  collisionActions:
+  - damage
+  damageAmount: 1
+  destroyOnDamage: 0
