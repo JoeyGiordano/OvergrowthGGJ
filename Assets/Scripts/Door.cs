@@ -19,20 +19,31 @@ public class Door : MonoBehaviour
     [SerializeField]
     private Sprite openDoorSprite;
 
+    [SerializeField]
+    private Sprite closeDoorSprite;
+
     DoorState memoryState;
+    SpriteRenderer sp;
+    BoxCollider2D col;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        sp = GetComponent<SpriteRenderer>();
+        col = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if(doorState == DoorState.open){
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = openDoorSprite;
-            this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            sp.sprite = openDoorSprite;
+            col.enabled = false;
+        }
+        else
+        {
+            sp.sprite = closeDoorSprite;
+            col.enabled = true;
         }
     }
 
@@ -45,9 +56,11 @@ public class Door : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D other){
         GameObject player = GameObject.Find("Player");
         if(other.gameObject == player){
-            if(player.GetComponent<PlayerMovement>().getHasKey()){
+            PlayerMovement pm = player.GetComponent<PlayerMovement>();
+            if (pm.getHasKey()){
                 if(doorState == DoorState.closedKey){
                     doorState = DoorState.open;
+                    pm.useKey();
                 }
             }
         }

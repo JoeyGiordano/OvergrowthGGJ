@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         
     }
-    private bool hasKey = false;
+    private int hasKey = 0;
 
 
     // Update is called once per frame
@@ -81,10 +81,14 @@ public class PlayerMovement : MonoBehaviour
 
 
     public bool getHasKey(){
-        return hasKey;
+        return hasKey > 0;
     }
     public void obtainKey(){
-        hasKey = true;
+        hasKey++;
+    }
+    public void useKey()
+    {
+        hasKey--;
     }
 
     public void OnCollisionEnter2D(Collision2D collision){

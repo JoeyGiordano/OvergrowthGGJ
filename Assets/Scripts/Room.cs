@@ -8,6 +8,8 @@ public class Room : MonoBehaviour
     [SerializeField] GameObject terminalObject;
     [SerializeField] Terminal terminal;
 
+    [SerializeField] DoorHandler doorHolder;
+
     //different statuses of the room:
     //1. unvisited: the player has not yet reached this room
     //2. infected: the player has just visited this room or the virus re-infects this room.
@@ -97,6 +99,7 @@ public class Room : MonoBehaviour
                     string[] message2 = { roomName + " is infected by the Virus!" };
                     terminalObject.SetActive(true);
                     terminal.addToQueue(message2);
+                    doorHolder.MobLock();
                 }
             }
             //print("game status: " + roomStatus.ToString());
@@ -133,6 +136,7 @@ public class Room : MonoBehaviour
                 string[] message = { "You've cleared the Virus from " + roomName + "!" };
                 terminalObject.SetActive(true);
                 terminal.addToQueue(message);
+                doorHolder.MobUnlock();
             }
         }
     }
