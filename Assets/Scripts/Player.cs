@@ -5,11 +5,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float speed;
+    Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -34,7 +35,18 @@ public class Player : MonoBehaviour
             movement += new Vector3(-1, 0, 0);
         }
 
-        transform.position += movement * speed * Time.deltaTime;
+        rb.MovePosition(transform.position + movement * speed * Time.deltaTime);
+
+        attack();
+
+    }
+
+    private void attack()
+    {
+
+
+        
+
 
     }
 }

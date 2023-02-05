@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         
     }
+    private bool hasKey = false;
+
 
     // Update is called once per frame
     private void Update()
@@ -46,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         
         moveDirection.Normalize();
         
-        print(moveSpeed*moveDirection);
+        // print(moveSpeed*moveDirection);
         GetComponent<Rigidbody2D>().velocity = moveSpeed * moveDirection;
 
         //mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -73,4 +75,10 @@ public class PlayerMovement : MonoBehaviour
     }*/
 
 
+    public bool getHasKey(){
+        return hasKey;
+    }
+    public void obtainKey(){
+        hasKey = true;
+    }
 }
