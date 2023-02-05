@@ -10,12 +10,12 @@ public class Spawner : MonoBehaviour
 
     float timeOfLastSpawn;
     float cooldown;
-    bool active;
+    public bool active = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        activate();
+        // activate();
     }
 
     // Update is called once per frame
@@ -40,10 +40,17 @@ public class Spawner : MonoBehaviour
         return true;
     }
 
-    private void activate()
+    public bool getStatus(){
+        return active;
+    }
+    public void activate()
     {
         timeOfLastSpawn = Time.time;
-        cooldown = initCooldown;
+        cooldown = 0;
         active = true;
     }
+    public void deactivate(){
+        active = false;
+    }
+
 }
