@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -47,6 +48,7 @@ public class Health : MonoBehaviour
                 
                 //Player.die?
                 // Debug.Log("Player is Dead :/");
+                SceneManager.LoadScene(0);
             }
             else if(tag == "Enemy")
             {
@@ -64,6 +66,8 @@ public class Health : MonoBehaviour
             else if(tag == "Boss")
             {
                 //end the scene
+                SceneManager.LoadScene(2);
+                
             }
         }
     }
@@ -72,13 +76,19 @@ public class Health : MonoBehaviour
     {
         if(iFrames == 0)
         {
-            curHealth--;
+            curHealth-= damage;
             iFrames = iFrameAmount;
             if(gameObject.tag == "Boss" && curHealth < maxHealth / 2)
             {
                 Boss.Instance.setIsHalfHp(true);
             }
         }
+        refreshHealthbar();
+    }
+
+    public void AddHealth(int health)
+    {
+        curHealth += health;
         refreshHealthbar();
     }
 

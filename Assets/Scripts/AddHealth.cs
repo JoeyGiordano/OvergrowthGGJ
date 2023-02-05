@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AddGun : MonoBehaviour
+public class AddHealth : MonoBehaviour
 {
-    [SerializeField] Shooting weaponHandler;
-    [SerializeField] string gunName;
+    [SerializeField] Health playerHealth;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {
-            weaponHandler.addWeapon(gunName);
+            playerHealth.AddHealth(5);
             Destroy(gameObject);
         }
     }
