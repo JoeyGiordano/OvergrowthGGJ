@@ -192,7 +192,7 @@ public class Terminal : MonoBehaviour
             }
             displayedText.text = "C:Alex:-$ " + curWord;
         }
-        else if (Time.time - startTime >= 1.5f)
+        else if (Time.time - startTime >= 2.2f)
         {
             terminalObject.SetActive(false);
         }
