@@ -158,6 +158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c237098e0c6576143a5bd5c2eeb0698c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terminalObject: {fileID: 0}
+  terminal: {fileID: 0}
   firePoint: {fileID: 8839117465595970441}
   bulletPrefab: {fileID: 343513479640749568, guid: 968fd1f411b130448a69ac66e0a105b9, type: 3}
   numbers:
@@ -211,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b099eb2682501a42b0e217c48efc491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 40
   iFrameAmount: 30
   healthBar: {fileID: 0}
 --- !u!1 &8839117465595970446
