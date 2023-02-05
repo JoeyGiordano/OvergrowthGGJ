@@ -57,6 +57,10 @@ public class Health : MonoBehaviour
                 spawner.deactivate();
                 // Debug.Log("Spawner is Disabled :/");
             }
+            else if(tag == "Boss")
+            {
+                //end the scene
+            }
         }
     }
 
@@ -66,6 +70,10 @@ public class Health : MonoBehaviour
         {
             curHealth--;
             iFrames = iFrameAmount;
+            if(gameObject.tag == "Boss" && curHealth < maxHealth / 2)
+            {
+                Boss.Instance.setIsHalfHp(true);
+            }
         }
     }
 

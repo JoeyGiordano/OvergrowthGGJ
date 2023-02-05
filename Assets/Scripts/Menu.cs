@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class Menu : MonoBehaviour
 {
     public void play()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
     }
 
     public void credits()
     {
+        SceneManager.LoadScene(2);
+    }
 
+    public void mainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

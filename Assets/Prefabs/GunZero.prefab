@@ -153,13 +153,15 @@ MonoBehaviour:
   - Spawner
   - Grid
   - Player
+  - Boss
   collisionActions:
   - damage
   - damage
   - destroy
   - ignore
+  - damage
   damageAmount: 0
-  destroyOnDamage: 1
+  destroyOnDamage: 0
 --- !u!198 &8654379463188806122
 ParticleSystem:
   m_ObjectHideFlags: 0
