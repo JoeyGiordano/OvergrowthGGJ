@@ -62,6 +62,5 @@ public class Door : MonoBehaviour
     public void DeactivateMobLock()
     {
         doorState = memoryState;
-        memoryState = null;
     }
 }
