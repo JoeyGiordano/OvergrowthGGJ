@@ -43,9 +43,9 @@ public class Room : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(roomName == "src"){
-            playerIsInRoom();
-        }
+        // if(roomName == "src"){
+        //     playerIsInRoom();
+        // }
     }
     public string getRoomName(){
         return roomName;
@@ -66,7 +66,7 @@ public class Room : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other){
         print(roomStatus);
         if(roomStatus != RoomStatus.cleared){
-            CameraController.Instance.setPlayerPositionState(CameraController.PlayerPositionState.PlayerIsInRoom, this.transform);
+            // CameraController.Instance.setPlayerPositionState(CameraController.PlayerPositionState.PlayerIsInRoom, this.transform);
         }
     }
     private void OnTriggerStay2D(Collider2D other){
