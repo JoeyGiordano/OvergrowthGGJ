@@ -5,18 +5,22 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
 
-    public Transform firePoint;
-    public GameObject bulletPrefab;
-    private float gunHeat = 0f;
-    public float bulletForce = 15f;
+    [SerializeField] Transform firePoint;
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] GameObject[] numbers;
+    [SerializeField] float bulletForce = 15f;
 
-    private GameObject player;
+    [SerializeField] string weaponType;
+    float gunHeat = 0f;
+    GameObject player;
     
     // Update is called once per frame
 
-    void Start(){
+    void Start()
+    {
         player = GameObject.Find("Player");
     }
+
     void Update()
     {
         // continuous firing?
@@ -34,15 +38,29 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
-        // spawn bullet, and add a force to the rigid body to make it fly
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-        Rigidbody2D bullet_rb = bullet.GetComponent<Rigidbody2D>();
-        //bullet_rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-        Vector3 bullet_velocity = Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.transform.position;
-        bullet_rb.velocity = bullet_velocity.normalized * bulletForce;
+        GameObject bullet;
+        Rigidbody2D bullet_rb;
+        Vector3 bullet_velocity;
+        switch (weaponType)
+        {
+            case ("number"):
+                // spawn bullet, and add a force to the rigid body to make it fly
+                bullet = Instantiate(numbers[Random.Range(0, 10)], firePoint.position, Quaternion.identity);
+                bullet_rb = bullet.GetComponent<Rigidbody2D>();
+                bullet_velocity = Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.transform.position;
+                bullet_rb.velocity = bullet_velocity.normalized * bulletForce;
+                break;
+            default:
+                // spawn bullet, and add a force to the rigid body to make it fly
+                bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+                bullet_rb = bullet.GetComponent<Rigidbody2D>();
+                bullet_velocity = Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.transform.position;
+                bullet_rb.velocity = bullet_velocity.normalized * bulletForce;
+                break;
+        }
         
-        Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), bullet.GetComponent<BoxCollider2D>());
-        Destroy(bullet, 3f);
-        Destroy(bullet_rb, 3f);
+        //Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), bullet.GetComponent<BoxCollider2D>());
+        //Destroy(bullet, 3f);
+        //Destroy(bullet_rb, 3f);
     }
 }
