@@ -112,6 +112,7 @@ MonoBehaviour:
   wormJumpCooldown: 2
   wormJumpDist: 5
   wormJumpStddv: 0.8
+  animator: {fileID: 6324564232939869605}
 --- !u!50 &8214556437673594758
 Rigidbody2D:
   serializedVersion: 4

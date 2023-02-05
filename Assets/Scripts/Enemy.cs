@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] float spiderJumpCooldown, spiderJumpDist, spiderJumpStddv;
     [SerializeField] float wormJumpCooldown = 20, wormJumpDist = 2, wormJumpStddv = 1;
 
+    public Animator animator;
+
     bool spiderJumping = false;
 
     bool wormJumping = false;
@@ -88,10 +90,12 @@ public class Enemy : MonoBehaviour
                 rb.gravityScale = 0;
                 rb.velocity = new Vector3(0, 0, 0);
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                animator.SetFloat("Anim", 0);
                 //landing anim
             }
             else if (!wormJumping && savedTime + wormJumpCooldown < Time.time)    //if the cooldown is over
             {
+                animator.SetFloat("Anim",1);
                 wormJumping = true;
                 Vector2 rand = Random.insideUnitCircle.normalized;
                 Vector3 endLocation = new Vector3(unitTowardsTarget.x, unitTowardsTarget.y * 2 / 3, 0) * wormJumpDist + new Vector3(rand.x, rand.y*2/3, 0) * wormJumpStddv;

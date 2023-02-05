@@ -46,7 +46,7 @@ public class Door : MonoBehaviour
         GameObject player = GameObject.Find("Player");
         if(other.gameObject == player){
             if(player.GetComponent<PlayerMovement>().getHasKey()){
-                if(doorState != DoorState.closedMobs && doorState == DoorState.closedKey){
+                if(doorState == DoorState.closedKey){
                     doorState = DoorState.open;
                 }
             }
