@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float moveSpeed = 1.5f;
     public Animator animator;
-    public Rigidbody2D rb;
+    Rigidbody2D rb;
     Vector2 mousePos;
 
     private bool isAllowedToMove = true;
@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
             //mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
             // Sprite animations for Animator
-            //fix animation later
+            // //fix animation later
             animator.SetFloat("Horizontal", moveDirection.x);
             animator.SetFloat("Vertical", moveDirection.y);
             animator.SetFloat("Speed", moveDirection.sqrMagnitude);
