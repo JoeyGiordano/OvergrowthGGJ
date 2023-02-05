@@ -45,6 +45,7 @@ public class Health : MonoBehaviour
             string tag = gameObject.tag;
             if(tag == "Player")
             {
+                
                 //Player.die?
                 // Debug.Log("Player is Dead :/");
                 SceneManager.LoadScene(0);

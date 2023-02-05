@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Grid
   - Boss
+  - Music
   layers:
   - Default
   - TransparentFX
