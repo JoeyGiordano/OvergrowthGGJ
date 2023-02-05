@@ -52,4 +52,7 @@ public class DamageSource : MonoBehaviour
     {
         HandleCollision(collision.gameObject);
     }
+    // public void setPiercing(bool piercing){
+    //     destroyOnDamage = piercing;
+    // }
 }

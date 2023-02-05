@@ -10,6 +10,8 @@ public class LevelManager : MonoBehaviour
 
     public static LevelManager Instance { get { return _LevelManager; } }
 
+    [SerializeField] GameObject terminalObject;
+    [SerializeField] Terminal terminal;
 
     private void Awake()
     {
@@ -43,15 +45,15 @@ public class LevelManager : MonoBehaviour
     {
         
     }
-    public void reinfectRoom(){
+    public void reinfectRoom(string roomName){
         List<string> availableRooms = CommandManager.Instance.getAvailableRooms();
         if(availableRooms.Count > 0){
-            string roomToReinfect = availableRooms[Random.Range(0, availableRooms.Count)];
-            print("reinfecting room: " + roomToReinfect);
             foreach(Room rm in rooms){
-                if(rm.getRoomName() == roomToReinfect){
-                    print("reinfect room: " + roomToReinfect);
+                if(rm.getRoomName() == roomName){
                     rm.resetEnemies();
+                    string[] message = { "The Virus has reinfected " + roomName };
+                    terminalObject.SetActive(true);
+                    terminal.addToQueue(message);
                     break;
                 }
             }
