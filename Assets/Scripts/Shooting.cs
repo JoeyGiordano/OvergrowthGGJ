@@ -8,7 +8,7 @@ public class Shooting : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     private float gunHeat = 0f;
-    public float bulletForce = 5f;
+    public float bulletForce = 15f;
 
     
     // Update is called once per frame
@@ -30,10 +30,13 @@ public class Shooting : MonoBehaviour
     void Shoot()
     {
         // spawn bullet, and add a force to the rigid body to make it fly
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         Rigidbody2D bullet_rb = bullet.GetComponent<Rigidbody2D>();
-        bullet_rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-        Destroy(bullet, 1f);
-        Destroy(bullet_rb, 1f);
+        //bullet_rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        Vector3 bullet_velocity = Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.transform.position;
+        bullet_rb.velocity = bullet_velocity.normalized * bulletForce;
+        
+        Destroy(bullet, 3f);
+        Destroy(bullet_rb, 3f);
     }
 }
