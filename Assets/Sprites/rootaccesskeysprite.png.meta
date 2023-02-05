@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bd91cab3cfbfbe94f85f4bba1df59070
+guid: bcb3169c4c235084bb8c9acd9cd867b0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 47
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,91 +103,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: rootaccesswidedoorspritesheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 106
-        width: 106
-        height: 106
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 387e0c6de57bd624ebcb1a4cd9c156c0
-      internalID: 248889666
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rootaccesswidedoorspritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 106
-        y: 106
-        width: 106
-        height: 106
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70e5dbf28afa025429bd2a2ea3d8c895
-      internalID: 266934971
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rootaccesswidedoorspritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 106
-        height: 106
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 982011d5a4572e34da78e92fd492a231
-      internalID: 1951949003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rootaccesswidedoorspritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 106
-        y: 0
-        width: 106
-        height: 106
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5ba0abbdbde0f534fb46c6412130b098
-      internalID: 1296380331
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -198,11 +114,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      rootaccesswidedoorspritesheet_1: 266934971
-      rootaccesswidedoorspritesheet_2: 1951949003
-      rootaccesswidedoorspritesheet_3: 1296380331
-      rootaccesswidedoorspritesheet_0: 248889666
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
