@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -89,7 +90,7 @@ public class CommandManager : MonoBehaviour
             // }
         }
         allowedLocations = lm.getRoomNames();
-        availableLocations.Add("System");
+        // availableLocations.Add("System");
         // availableLocations.Add("Documents");
         // allowedWeapons.Add("gun");
         // allowedWeapons.Add("knife");
