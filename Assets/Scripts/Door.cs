@@ -8,14 +8,18 @@ public class Door : MonoBehaviour
     
     public enum DoorState{
         closedPassword,
+        closedMobs,
         closedKey,
         open,
     }
+    
     [SerializeField]
     private DoorState doorState;
     
     [SerializeField]
     private Sprite openDoorSprite;
+
+    DoorState memoryState;
 
     // Start is called before the first frame update
     void Start()
@@ -36,14 +40,28 @@ public class Door : MonoBehaviour
         doorState = DoorState.open;
     }
 
+
+
     public void OnCollisionEnter2D(Collision2D other){
         GameObject player = GameObject.Find("Player");
         if(other.gameObject == player){
             if(player.GetComponent<PlayerMovement>().getHasKey()){
-                if(doorState == DoorState.closedKey){
+                if(doorState != DoorState.closedMobs && doorState == DoorState.closedKey){
                     doorState = DoorState.open;
                 }
             }
         }
+    }
+
+    public void ActivateMobLock()
+    {
+        memoryState = doorState;
+        doorState = DoorState.closedMobs;
+    }
+
+    public void DeactivateMobLock()
+    {
+        doorState = memoryState;
+        memoryState = null;
     }
 }
