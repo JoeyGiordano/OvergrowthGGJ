@@ -30,14 +30,18 @@ public class CommandManager : MonoBehaviour
         "exec"
     };
     private List<string> allowedLocations = new List<string>();
+
+    private List<string> availableLocations = new List<string>();
     private List<string> allowedWeapons = new List<string>();
 
     private bool devState = false;
 
+    GameObject terminal;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        terminal = GameObject.Find("TextScrollManager");
     }
 
     // Update is called once per frame
@@ -64,11 +68,12 @@ public class CommandManager : MonoBehaviour
     private void setupDevTest(){
         LevelManager lm = LevelManager.Instance;
         foreach(Room r in lm.getRooms()){
-            if(r.getRoomName() == "src"){
-                r.setRoomStatus(Room.RoomStatus.cleared);
-            }
+            // if(r.getRoomName() == "src"){
+            //     r.setRoomStatus(Room.RoomStatus.cleared);
+            // }
         }
         allowedLocations = lm.getRoomNames();
+        availableLocations = lm.getRoomNames();
         allowedWeapons.Add("gun");
         allowedWeapons.Add("knife");
         devState = true;
@@ -125,6 +130,38 @@ public class CommandManager : MonoBehaviour
                 if(arguments.Count > 0){
                     return 1;
                 }
+                string[] availableLocationsArr;
+
+                if(availableLocations.Count <= 0){
+                    print("no locations");
+                    availableLocationsArr = new string[] {"No locations cleared!"};
+                }
+                else{
+                    
+                    List<string> groupedLocations = new List<string>();
+
+                    int locationGroupCount = 4;
+                    int counter = 0;
+                    string appendLocation = "";
+                    for(int i = 0; i < availableLocations.Count; i++){
+                        if(counter == 0){
+                            appendLocation = availableLocations[i];
+                        }
+                        else if(counter == locationGroupCount){
+                            groupedLocations.Add(appendLocation);
+                            appendLocation = availableLocations[i];
+                            counter = 0;
+                        }
+                        else{
+                            appendLocation += "  " + availableLocations[i];
+                        }
+                        counter += 1;
+                    }
+                    groupedLocations.Add(appendLocation);
+                    availableLocationsArr = groupedLocations.ToArray();
+                }
+
+                terminal.GetComponent<Terminal>().addToQueue(availableLocationsArr);
                 //print all available rooms here
                 return 0;
             case "exec":

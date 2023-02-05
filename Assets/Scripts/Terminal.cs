@@ -55,9 +55,14 @@ public class Terminal : MonoBehaviour
     bool writing;
     float startTime;
 
+    private GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
+
+        player = GameObject.Find("Player");
+
         lineQueue = new Queue<string>();
         foreach (string s in lineQueueBuffer)
         {
@@ -141,7 +146,33 @@ public class Terminal : MonoBehaviour
                     terminalObject.SetActive(false);
                     return;
                 }
+
+                player.GetComponent<PlayerMovement>().restrictMovement(false);
                 // You can figure out what you want to do with the command here...
+
+                int execute = CommandManager.Instance.parseCommandLine(curWord);
+                string executeRet = "";
+
+                switch (execute){
+                    case -1: 
+                        executeRet = "[Errno -1] Invalid Syntax!";
+                        break;
+                    case 1:
+                        executeRet = "[Errno 1]: Incorrect Number of Arguments!";
+                        break;
+                    case 2:
+                        executeRet = "[Errno 2]: Argument(s) Not Allowed!";
+                        break;
+                    default:
+                        break;
+                }
+                print(executeRet);
+                if(executeRet != "")
+                    lineQueue.Enqueue(executeRet);
+                reading = true;
+
+                //writing = false, reading = true
+
                 startTime = Time.time;
             }
             foreach (char c in Input.inputString)
@@ -189,6 +220,7 @@ public class Terminal : MonoBehaviour
         foreach (string s in nextLines) {
             lineQueue.Enqueue(s);
         }
+        // at = 0;
         reading = true;
     }
 
@@ -201,6 +233,7 @@ public class Terminal : MonoBehaviour
                 shiftLines();
                 curWord = "";
             }
+            player.GetComponent<PlayerMovement>().restrictMovement(true);
             writing = true;
         }
     }

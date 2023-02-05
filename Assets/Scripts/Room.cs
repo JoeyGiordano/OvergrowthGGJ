@@ -64,7 +64,7 @@ public class Room : MonoBehaviour
         return false;
     }
     private void OnTriggerEnter2D(Collider2D other){
-        print(roomStatus);
+        // print(roomStatus);
         if(roomStatus != RoomStatus.cleared){
             // CameraController.Instance.setPlayerPositionState(CameraController.PlayerPositionState.PlayerIsInRoom, this.transform);
         }
