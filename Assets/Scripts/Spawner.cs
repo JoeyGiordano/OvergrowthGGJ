@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    // Connection to terminal
+    [SerializeField] GameObject terminalObject;
+    [SerializeField] Terminal terminal;
+
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] float aveCooldown, cooldownStddv, initCooldown;
     [SerializeField] int spawnCap;
@@ -50,6 +54,12 @@ public class Spawner : MonoBehaviour
         active = true;
     }
     public void deactivate(){
+        if (active)
+        {
+            string[] message = { gameObject.name + " has been disabled" };
+            terminalObject.SetActive(true);
+            terminal.addToQueue(message);
+        }
         active = false;
     }
 

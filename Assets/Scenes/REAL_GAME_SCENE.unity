@@ -176,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7001412172516502149, guid: 844e69b17fe4f4e1ea719ec8cf5c3e9a, type: 3}
       propertyPath: m_Name
-      value: FlySpawner (1)
+      value: FlySpawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 844e69b17fe4f4e1ea719ec8cf5c3e9a, type: 3}
@@ -189,7 +189,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6703718428226625288, guid: 8d71d2a8e7da840279d0d08911152337, type: 3}
       propertyPath: m_Name
-      value: SpiderSpawner (1)
+      value: SpiderSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 6703718428226625333, guid: 8d71d2a8e7da840279d0d08911152337, type: 3}
       propertyPath: m_RootOrder
@@ -9918,7 +9918,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6703718428226625288, guid: 795ecba568c6ee14daff4ec790b65614, type: 3}
       propertyPath: m_Name
-      value: WormPrefab (1)
+      value: WormPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 6703718428226625333, guid: 795ecba568c6ee14daff4ec790b65614, type: 3}
       propertyPath: m_RootOrder
@@ -10148,7 +10148,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6703718428226625288, guid: 8d71d2a8e7da840279d0d08911152337, type: 3}
       propertyPath: m_Name
-      value: SpiderSpawner (3)
+      value: SpiderSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 6703718428226625333, guid: 8d71d2a8e7da840279d0d08911152337, type: 3}
       propertyPath: m_RootOrder
@@ -10454,7 +10454,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6703718428226625288, guid: 8d71d2a8e7da840279d0d08911152337, type: 3}
       propertyPath: m_Name
-      value: SpiderSpawner (4)
+      value: SpiderSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 6703718428226625333, guid: 8d71d2a8e7da840279d0d08911152337, type: 3}
       propertyPath: m_RootOrder
@@ -36730,7 +36730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7001412172516502149, guid: 844e69b17fe4f4e1ea719ec8cf5c3e9a, type: 3}
       propertyPath: m_Name
-      value: FlySpawner (1)
+      value: FlySpawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 844e69b17fe4f4e1ea719ec8cf5c3e9a, type: 3}
@@ -37493,7 +37493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7001412172516502149, guid: 844e69b17fe4f4e1ea719ec8cf5c3e9a, type: 3}
       propertyPath: m_Name
-      value: FlySpawner (1)
+      value: FlySpawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 844e69b17fe4f4e1ea719ec8cf5c3e9a, type: 3}
@@ -37912,7 +37912,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6703718428226625288, guid: 8d71d2a8e7da840279d0d08911152337, type: 3}
       propertyPath: m_Name
-      value: SpiderSpawner (2)
+      value: SpiderSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 6703718428226625333, guid: 8d71d2a8e7da840279d0d08911152337, type: 3}
       propertyPath: m_RootOrder
@@ -38184,7 +38184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7001412172516502149, guid: 844e69b17fe4f4e1ea719ec8cf5c3e9a, type: 3}
       propertyPath: m_Name
-      value: FlySpawner (3)
+      value: FlySpawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 844e69b17fe4f4e1ea719ec8cf5c3e9a, type: 3}
@@ -38381,7 +38381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6703718428226625288, guid: 8d71d2a8e7da840279d0d08911152337, type: 3}
       propertyPath: m_Name
-      value: SpiderSpawner (1)
+      value: SpiderSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 6703718428226625333, guid: 8d71d2a8e7da840279d0d08911152337, type: 3}
       propertyPath: m_RootOrder
@@ -38436,6 +38436,118 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1827870967845190513, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: t
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 1827870967845190513, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminal
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 1827870967845190513, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminalObject
+      value: 
+      objectReference: {fileID: 579943861}
+    - target: {fileID: 2334935009036451235, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: t
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 2334935009036451235, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminal
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 2334935009036451235, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminalObject
+      value: 
+      objectReference: {fileID: 579943861}
+    - target: {fileID: 2334935009299935072, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: t
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 2334935009299935072, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminal
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 2334935009299935072, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminalObject
+      value: 
+      objectReference: {fileID: 579943861}
+    - target: {fileID: 2334935009607037691, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: t
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 2334935009607037691, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminal
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 2334935009607037691, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminalObject
+      value: 
+      objectReference: {fileID: 579943861}
+    - target: {fileID: 2334935010581578815, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: t
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 2334935010581578815, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminal
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 2334935010581578815, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminalObject
+      value: 
+      objectReference: {fileID: 579943861}
+    - target: {fileID: 3916248517529594771, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: t
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 3916248517529594771, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminal
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 3916248517529594771, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminalObject
+      value: 
+      objectReference: {fileID: 579943861}
+    - target: {fileID: 4043657306719430611, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: t
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 4043657306719430611, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminal
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 4043657306719430611, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminalObject
+      value: 
+      objectReference: {fileID: 579943861}
+    - target: {fileID: 4459181957547673432, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: t
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 4459181957547673432, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminal
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 4459181957547673432, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: roomStatus
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459181957547673432, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminalObject
+      value: 
+      objectReference: {fileID: 579943861}
+    - target: {fileID: 4694839001688520942, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: t
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 4694839001688520942, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminal
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 4694839001688520942, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminalObject
+      value: 
+      objectReference: {fileID: 579943861}
     - target: {fileID: 6397791575527285493, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -38484,6 +38596,74 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7325085746568399298, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: t
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 7325085746568399298, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminal
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 7325085746568399298, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminalObject
+      value: 
+      objectReference: {fileID: 579943861}
+    - target: {fileID: 7552897550038326864, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminal
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 7552897550038326864, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminalObject
+      value: 
+      objectReference: {fileID: 579943861}
+    - target: {fileID: 8033803425897599601, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: t
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 8033803425897599601, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminal
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 8033803425897599601, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminalObject
+      value: 
+      objectReference: {fileID: 579943861}
+    - target: {fileID: 8233930107176636441, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: t
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 8233930107176636441, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminal
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 8233930107176636441, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminalObject
+      value: 
+      objectReference: {fileID: 579943861}
+    - target: {fileID: 8819187058748317993, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: t
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 8819187058748317993, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminal
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 8819187058748317993, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminalObject
+      value: 
+      objectReference: {fileID: 579943861}
+    - target: {fileID: 8981956430732989968, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: t
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 8981956430732989968, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminal
+      value: 
+      objectReference: {fileID: 552934449}
+    - target: {fileID: 8981956430732989968, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
+      propertyPath: terminalObject
+      value: 
+      objectReference: {fileID: 579943861}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 370dc4fd3ca6ad24c922045241724961, type: 3}
 --- !u!4 &1580736779 stripped
@@ -38791,7 +38971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7001412172516502149, guid: 844e69b17fe4f4e1ea719ec8cf5c3e9a, type: 3}
       propertyPath: m_Name
-      value: FlySpawner (2)
+      value: FlySpawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 844e69b17fe4f4e1ea719ec8cf5c3e9a, type: 3}
@@ -38953,7 +39133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7001412172516502149, guid: 844e69b17fe4f4e1ea719ec8cf5c3e9a, type: 3}
       propertyPath: m_Name
-      value: FlySpawner (1)
+      value: FlySpawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 844e69b17fe4f4e1ea719ec8cf5c3e9a, type: 3}
@@ -39010,7 +39190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7001412172516502149, guid: 844e69b17fe4f4e1ea719ec8cf5c3e9a, type: 3}
       propertyPath: m_Name
-      value: FlySpawner (1)
+      value: FlySpawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 844e69b17fe4f4e1ea719ec8cf5c3e9a, type: 3}
