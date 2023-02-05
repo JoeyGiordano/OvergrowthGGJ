@@ -10,7 +10,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] GameObject[] numbers;
     [SerializeField] float bulletForce = 15f;
 
-    [SerializeField] string weaponType;
+    [SerializeField] string weaponType = "terminate-pellets";
     float gunHeat = 0f;
     GameObject player;
     
@@ -36,14 +36,20 @@ public class Shooting : MonoBehaviour
         
     }
 
+    public void setWeapon(string weapon){
+        weaponType = weapon;
+    }
+
     void Shoot()
     {
         GameObject bullet;
         Rigidbody2D bullet_rb;
         Vector3 bullet_velocity;
+        // print(weaponType);
         switch (weaponType)
-        {
-            case ("number"):
+        {   
+            case ("number-pellets"):
+                // print("using numbers");
                 // spawn bullet, and add a force to the rigid body to make it fly
                 bullet = Instantiate(numbers[Random.Range(0, 10)], firePoint.position, Quaternion.identity);
                 bullet_rb = bullet.GetComponent<Rigidbody2D>();

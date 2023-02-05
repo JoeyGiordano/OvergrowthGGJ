@@ -29,19 +29,25 @@ public class CommandManager : MonoBehaviour
         "ls",
         "exec"
     };
+
     private List<string> allowedLocations = new List<string>();
 
     private List<string> availableLocations = new List<string>();
-    private List<string> allowedWeapons = new List<string>();
+    private List<string> allowedWeapons = new List<string>{
+        "terminate-pellets",
+        "number-pellets"
+    };
 
     private bool devState = false;
 
     GameObject terminal;
+    GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
         terminal = GameObject.Find("TextScrollManager");
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -83,6 +89,7 @@ public class CommandManager : MonoBehaviour
             // }
         }
         allowedLocations = lm.getRoomNames();
+        availableLocations.Add("System");
         // availableLocations.Add("Documents");
         // allowedWeapons.Add("gun");
         // allowedWeapons.Add("knife");
@@ -179,13 +186,27 @@ public class CommandManager : MonoBehaviour
                 return 0;
             case "exec":
                 if(arguments.Count != 1){
+                    // string[] message = {"[Errno 1]: invalid number of arguments"};
+                    // terminal.GetComponent<Terminal>().addToQueue(message);
                     return 1;
                 }
-                if(!allowedLocations.Contains(arguments[0])){
+                if(!allowedWeapons.Contains(arguments[0])){
+                    List<string> allowedWeaponsMessage = new List<string>();
+                    allowedWeaponsMessage.Add("Allowed weapons: ");
+                    string appendWeapons = "";
+                    foreach(string s in allowedWeapons){
+                        appendWeapons += s;
+                        appendWeapons += "  "; 
+                    }
+                    allowedWeaponsMessage.Add(appendWeapons);
+                    terminal.GetComponent<Terminal>().addToQueue(allowedWeaponsMessage.ToArray());
                     return 2;
                 }
-
+                
+                string[] weaponMessage = {"Weapon set to " + arguments[0]};
                 //change player weapon here
+                player.GetComponent<Shooting>().setWeapon(arguments[0]);
+                terminal.GetComponent<Terminal>().addToQueue(weaponMessage);
                 return 0;
             default:
                 return 1;
