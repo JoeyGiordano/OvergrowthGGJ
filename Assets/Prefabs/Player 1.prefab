@@ -160,7 +160,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 8839117465595970441}
   bulletPrefab: {fileID: 343513479640749568, guid: 968fd1f411b130448a69ac66e0a105b9, type: 3}
-  numbers: []
+  numbers:
+  - {fileID: 343513479640749568, guid: ffa78ebd70750bb40a9f4b6494b79a7b, type: 3}
+  - {fileID: 343513479640749568, guid: 3061a287065f4644080d4f9555db2b2c, type: 3}
+  - {fileID: 343513479640749568, guid: a624c85824c03c44881d46c3a754ac97, type: 3}
+  - {fileID: 343513479640749568, guid: 93104be5673f49249a0eabed2df2b939, type: 3}
+  - {fileID: 343513479640749568, guid: 1771dbb212f3af04fa6e80fb42d43983, type: 3}
+  - {fileID: 343513479640749568, guid: 51723499ab1fb7747802dc96617b1a8d, type: 3}
+  - {fileID: 343513479640749568, guid: 7612d63446be00246bd0eb7239c71165, type: 3}
+  - {fileID: 343513479640749568, guid: 6407f48b9fee17644b8ea2ccd4fb5436, type: 3}
+  - {fileID: 343513479640749568, guid: 3a4c63ed0e725d44f9598a4fbfb9bb77, type: 3}
+  - {fileID: 343513479640749568, guid: e29fdb8e1ba3b4e4680fe4fd251df994, type: 3}
   bulletForce: 15
   weaponType: 
 --- !u!61 &8839117464661547662

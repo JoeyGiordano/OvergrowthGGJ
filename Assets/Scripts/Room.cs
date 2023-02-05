@@ -37,7 +37,6 @@ public class Room : MonoBehaviour
     public RoomStatus roomStatus;
     private bool insideRoom = false;
     GameObject player;
-    private bool loopLock = false;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +54,7 @@ public class Room : MonoBehaviour
     }
 
     public void resetEnemies(){
+
         roomStatus = RoomStatus.unvisited;
         CommandManager.Instance.removeAvailableRoom(roomName);
         foreach(Transform child in transform){
@@ -66,7 +66,9 @@ public class Room : MonoBehaviour
             }
         }
     }
+
     private void OnTriggerEnter2D(Collider2D other){
+        
         // print(roomStatus);
         if(other.gameObject == player.gameObject){
             string[] message1 = { "Welcome to " + roomName };
