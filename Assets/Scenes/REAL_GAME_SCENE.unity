@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 112306070}
   m_Layer: 10
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Grid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9803,9 +9803,9 @@ MonoBehaviour:
   spiderJumpCooldown: 0
   spiderJumpDist: 0
   spiderJumpStddv: 0
-  wormCooldown: 10
-  wormForecast: 2
-  wormAttack: 1
+  wormJumpCooldown: 20
+  wormJumpDist: 2
+  wormJumpStddv: 1
 --- !u!1001 &220380919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36880,11 +36880,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8839117464661547663, guid: b7b1fc8ce48183a4ca9b1885fe8cfc82, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -70.3
+      value: -70.5
       objectReference: {fileID: 0}
     - target: {fileID: 8839117464661547663, guid: b7b1fc8ce48183a4ca9b1885fe8cfc82, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 61.2
+      value: 63
       objectReference: {fileID: 0}
     - target: {fileID: 8839117464661547663, guid: b7b1fc8ce48183a4ca9b1885fe8cfc82, type: 3}
       propertyPath: m_LocalPosition.z

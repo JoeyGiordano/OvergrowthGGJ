@@ -32,8 +32,8 @@ Transform:
   m_GameObject: {fileID: 8839117464661547649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -70.3, y: 61.2, z: 0}
-  m_LocalScale: {x: 2.8885367, y: 2.8885367, z: 2.8885367}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8839117465595970441}
   m_Father: {fileID: 0}
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e1d527d5eb12449bd591cf652441b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 4
   animator: {fileID: 8839117464661547651}
 --- !u!95 &8839117464661547651
 Animator:
@@ -160,7 +160,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 8839117465595970441}
   bulletPrefab: {fileID: 343513479640749568, guid: 968fd1f411b130448a69ac66e0a105b9, type: 3}
+  numbers: []
   bulletForce: 15
+  weaponType: 
 --- !u!61 &8839117464661547662
 BoxCollider2D:
   m_ObjectHideFlags: 0
