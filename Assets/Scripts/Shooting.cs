@@ -24,6 +24,9 @@ public class Shooting : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        terminalObject = GameObject.Find("Terminal");
+        terminal = GameObject.Find("TextScrollManager").GetComponent<Terminal>();
+
         weaponUnlocks = new Hashtable();
         weaponUnlocks.Add("terminate-pellets", true);
         weaponUnlocks.Add("number-pellets", false);

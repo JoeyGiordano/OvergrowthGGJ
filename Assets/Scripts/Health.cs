@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] int maxHealth;
     [SerializeField] int iFrameAmount;
+    [SerializeField] Slider healthBar;
 
     int curHealth;
     int iFrames;
@@ -17,6 +19,7 @@ public class Health : MonoBehaviour
     {
         curHealth = maxHealth;
         sp = GetComponent<SpriteRenderer>();
+        refreshHealthbar();
     }
 
     // Update is called once per frame
@@ -75,10 +78,17 @@ public class Health : MonoBehaviour
                 Boss.Instance.setIsHalfHp(true);
             }
         }
+        refreshHealthbar();
     }
 
     public void ResetHealth()
     {
         curHealth = maxHealth;
+    }
+
+    private void refreshHealthbar()
+    {
+        if (gameObject.tag != "Player") return;
+        healthBar.value = (float)curHealth / (float)maxHealth;
     }
 }

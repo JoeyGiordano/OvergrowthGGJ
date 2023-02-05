@@ -35,7 +35,7 @@ public class CommandManager : MonoBehaviour
     private List<string> availableLocations = new List<string>();
     private List<string> allowedWeapons = new List<string>{
         "terminate-pellets",
-        "number-pellets"
+        // "number-pellets"
     };
 
     private bool devState = false;
@@ -203,10 +203,10 @@ public class CommandManager : MonoBehaviour
                     return 2;
                 }
                 
-                string[] weaponMessage = {"Weapon set to " + arguments[0]};
+                // string[] weaponMessage = {"Weapon set to " + arguments[0]};
                 //change player weapon here
                 player.GetComponent<Shooting>().setWeapon(arguments[0]);
-                terminal.GetComponent<Terminal>().addToQueue(weaponMessage);
+                // terminal.GetComponent<Terminal>().addToQueue(weaponMessage);
                 return 0;
             default:
                 return 1;
