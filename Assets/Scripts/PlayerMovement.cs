@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float moveSpeed = 1;
+    public float moveSpeed = 1.5f;
     public Animator animator;
+    public Rigidbody2D rb;
+    Vector2 mousePos;
+    //bool isShooting = true;
+    //public Camera cam;
+
+    
 
     private void Start() 
     {
         animator = GetComponent<Animator>();
+        
     }
-
 
     // Update is called once per frame
     private void Update()
@@ -42,8 +49,28 @@ public class PlayerMovement : MonoBehaviour
         print(moveSpeed*moveDirection);
         GetComponent<Rigidbody2D>().velocity = moveSpeed * moveDirection;
 
+        //mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        // Sprite animations for Animator
+        //fix animation later
         animator.SetFloat("Horizontal", moveDirection.x);
         animator.SetFloat("Vertical", moveDirection.y);
         animator.SetFloat("Speed", moveDirection.sqrMagnitude);
+
     }
+
+    void LookAtMouse()
+    {
+        Vector2 mousePos = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.up = (Vector3)(mousePos - new Vector2(transform.position.x, transform.position.y));
+    }
+
+    /*void FixedUpdate()
+    {
+        Vector2 lookDir = mousePos - rb.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+        rb.rotation = angle;
+    }*/
+
+
 }
