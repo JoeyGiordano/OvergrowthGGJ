@@ -52,6 +52,7 @@ public class Spawner : MonoBehaviour
         timeOfLastSpawn = Time.time;
         cooldown = 0;
         active = true;
+        this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
     }
     public void deactivate(){
         if (active)
@@ -59,6 +60,7 @@ public class Spawner : MonoBehaviour
             string[] message = { gameObject.name + " has been disabled" };
             terminalObject.SetActive(true);
             terminal.addToQueue(message);
+            this.gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
         }
         active = false;
     }
