@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4348153965286851810}
   - component: {fileID: 8751793858439144864}
   - component: {fileID: 3320295207759223250}
-  - component: {fileID: 8761834731122091824}
+  - component: {fileID: 7367078411036207252}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Projectile
@@ -134,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.09, y: 0.09}
   m_EdgeRadius: 0
---- !u!114 &8761834731122091824
+--- !u!114 &7367078411036207252
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,6 +143,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 343513479640749568}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98fbdf7779bc842039e811a47802c8f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 377edcda8755d114c90c985b910fbe75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionKeys:
+  - Enemy
+  - Spawner
+  - Grid
+  - Player
+  collisionActions:
+  - damage
+  - damage
+  - destroy
+  - ignore
+  damageAmount: 1
+  destroyOnDamage: 1

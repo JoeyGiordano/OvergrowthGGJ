@@ -9750,7 +9750,7 @@ GameObject:
   - component: {fileID: 354947812}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: Grid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9829,10 +9829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   framesPerCharacter: 1
-  lineQueueBuffer:
-  - C:User:-$ aaaaaaa
-  - C:User:-$ bbbbbbb
-  - C:User:-$ ccccccc
+  lineQueueBuffer: []
   tick: {fileID: 0}
   textObjects:
   - {fileID: 1367483511}
@@ -9857,7 +9854,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &579943862
 MonoBehaviour:
   m_ObjectHideFlags: 0
