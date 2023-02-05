@@ -31,12 +31,13 @@ public class Room : MonoBehaviour
     [SerializeField]
     private string layout;
 
-    private RoomStatus roomStatus = RoomStatus.unvisited;
+    private RoomStatus roomStatus;
     GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
+        roomStatus = RoomStatus.unvisited;
         player = GameObject.Find("Player");
     }
 
@@ -46,6 +47,8 @@ public class Room : MonoBehaviour
         // if(roomName == "src"){
         //     playerIsInRoom();
         // }
+        // print(roomStatus);
+        setRoomStatus(determineRoomState());
     }
     public string getRoomName(){
         return roomName;
@@ -55,19 +58,36 @@ public class Room : MonoBehaviour
     }
     public void setRoomStatus(RoomStatus status){
         roomStatus = status;
-        if(status == RoomStatus.cleared){
-            CameraController.Instance.setPlayerPositionState(CameraController.PlayerPositionState.PlayerIsInHallway, player.transform);
-        }
+        // if(status == RoomStatus.cleared){
+        //     CameraController.Instance.setPlayerPositionState(CameraController.PlayerPositionState.PlayerIsInHallway, player.transform);
+        // }
     }
 
-    private bool playerIsInRoom(){
-        return false;
+    private RoomStatus determineRoomState(){
+
+        if(roomStatus == RoomStatus.unvisited){
+            return RoomStatus.unvisited;
+        }
+        foreach(Transform child in transform){
+            Spawner spawner = child.gameObject.GetComponent<Spawner>();
+            if(spawner != null){
+                if(spawner.getStatus()){
+                    return RoomStatus.infected;
+                }
+            }
+        }
+        print("room is clear");
+        CommandManager.Instance.addToAvailableRooms(roomName);
+        return RoomStatus.cleared;
     }
     private void OnTriggerEnter2D(Collider2D other){
         // print(roomStatus);
         if(other.gameObject == player.gameObject){
             print("entering room");
             print("game status: " + roomStatus.ToString());
+            if(roomStatus == RoomStatus.unvisited){
+                roomStatus = RoomStatus.infected;
+            }
             foreach(Transform child in transform){
                 Spawner spawner = child.gameObject.GetComponent<Spawner>();
                     if(spawner != null){
@@ -79,10 +99,16 @@ public class Room : MonoBehaviour
                         }
                 }
             }
+            int reinfect_chance = Random.Range(0, 100);
+            if(reinfect_chance < 10){
+                LevelManager.Instance.reinfectRoom();
         }
+        }
+        
         
     }
     private void OnTriggerStay2D(Collider2D other){
+        print(roomStatus);
         if(Input.GetKey(KeyCode.L)){
             setRoomStatus(RoomStatus.cleared);
         }

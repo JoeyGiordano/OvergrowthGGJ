@@ -40,6 +40,9 @@ public class Spawner : MonoBehaviour
         return true;
     }
 
+    public bool getStatus(){
+        return active;
+    }
     public void activate()
     {
         timeOfLastSpawn = Time.time;

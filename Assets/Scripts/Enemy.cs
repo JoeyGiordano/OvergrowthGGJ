@@ -10,12 +10,15 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] float flyAccel, flyAccelNoise, flyMaxSpeed;
     [SerializeField] float spiderJumpCooldown, spiderJumpDist, spiderJumpStddv;
-    [SerializeField] float wormCooldown = 20, wormForecast = 2, wormAttack = 1;
+    [SerializeField] float wormJumpCooldown = 20, wormJumpDist = 2, wormJumpStddv = 1;
 
     bool spiderJumping = false;
-    float spiderNextY;
 
-    float wormState = 0, wormCounter = 0;
+    bool wormJumping = false;
+    float spiderNextY;
+    float wormNextY;
+
+    // float wormState = 0, wormCounter = 0;
 
     float savedTime;
 
@@ -72,33 +75,59 @@ public class Enemy : MonoBehaviour
         }
         if (enemyType == "worm")
         {
-            if (wormState == 0)
-            {
-                wormCounter += Random.Range(0, 1);
-                if (wormCounter > wormCooldown)
-                {
-                    wormState = 1;
-                    wormCounter = 0;
-                    savedTime = Time.time;
-                    //show dirt forecast, damage remains off
-                }
-            } else if (wormState == 1)
-            {
-                if (savedTime + wormForecast < Time.time)
-                {
-                    wormState = 2;
-                    savedTime = Time.time;
-                    //show attack anim, turn damage on
-                }
-            } else if (wormState == 2)
-            {
-                if (savedTime + wormAttack < Time.time)
-                {
-                    wormState = 0;
-                    //move to a random position in the room
-                    //hide, turn damage off
-                }
+            if(target.transform.position.x < transform.position.x){
+                transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
             }
+            else{
+                transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            }
+            if (wormJumping && wormNextY > transform.position.y && rb.velocity.y < 0) //spider done jumping
+            {
+                wormJumping = false;
+                savedTime = Time.time;
+                rb.gravityScale = 0;
+                rb.velocity = new Vector3(0, 0, 0);
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                //landing anim
+            }
+            else if (!wormJumping && savedTime + wormJumpCooldown < Time.time)    //if the cooldown is over
+            {
+                wormJumping = true;
+                Vector2 rand = Random.insideUnitCircle.normalized;
+                Vector3 endLocation = new Vector3(unitTowardsTarget.x, unitTowardsTarget.y * 2 / 3, 0) * wormJumpDist + new Vector3(rand.x, rand.y*2/3, 0) * wormJumpStddv;
+                wormNextY = transform.position.y + endLocation.y;
+                rb.velocity = wormJumpDist * new Vector3(unitTowardsTarget.x, 2 + unitTowardsTarget.y * 2 / 3, 0);
+                rb.gravityScale = 4;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                //jumping anim
+            }
+            // if (wormState == 0)
+            // {
+            //     wormCounter += Random.Range(0, 1);
+            //     if (wormCounter > wormCooldown)
+            //     {
+            //         wormState = 1;
+            //         wormCounter = 0;
+            //         savedTime = Time.time;
+            //         //show dirt forecast, damage remains off
+            //     }
+            // } else if (wormState == 1)
+            // {
+            //     if (savedTime + wormForecast < Time.time)
+            //     {
+            //         wormState = 2;
+            //         savedTime = Time.time;
+            //         //show attack anim, turn damage on
+            //     }
+            // } else if (wormState == 2)
+            // {
+            //     if (savedTime + wormAttack < Time.time)
+            //     {
+            //         wormState = 0;
+            //         //move to a random position in the room
+            //         //hide, turn damage off
+            //     }
+            // }
         }
     }
 }

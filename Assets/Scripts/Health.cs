@@ -53,6 +53,8 @@ public class Health : MonoBehaviour
             else if(tag == "Spawner")
             {
                 //Disable Spawner
+                Spawner spawner = this.gameObject.GetComponent<Spawner>();
+                spawner.deactivate();
                 Debug.Log("Spawner is Disabled :/");
             }
         }

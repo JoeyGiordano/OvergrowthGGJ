@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
-  iFrameAmount: 0
+  iFrameAmount: 5
 --- !u!114 &5648069071260464616
 MonoBehaviour:
   m_ObjectHideFlags: 0

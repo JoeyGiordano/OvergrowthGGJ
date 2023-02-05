@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7001412172516502148}
   - component: {fileID: 7001412172516502146}
   - component: {fileID: 8403503354514332014}
-  - component: {fileID: 4838056119413969959}
   - component: {fileID: 2472850595782810097}
   m_Layer: 0
   m_Name: FlySpawner
@@ -131,24 +130,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4838056119413969959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7001412172516502149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 377edcda8755d114c90c985b910fbe75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionKeys:
-  - Player
-  collisionActions:
-  - damage
-  damageAmount: 1
-  destroyOnDamage: 0
 --- !u!114 &2472850595782810097
 MonoBehaviour:
   m_ObjectHideFlags: 0

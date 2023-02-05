@@ -14,9 +14,11 @@ GameObject:
   - component: {fileID: 8214556437673594758}
   - component: {fileID: 1087843803368796514}
   - component: {fileID: 6324564232939869605}
+  - component: {fileID: 3464783741431222948}
+  - component: {fileID: 695131099887538128}
   m_Layer: 0
   m_Name: Worm
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,9 +109,9 @@ MonoBehaviour:
   spiderJumpCooldown: 0
   spiderJumpDist: 0
   spiderJumpStddv: 0
-  wormCooldown: 20
-  wormForecast: 2
-  wormAttack: 1
+  wormJumpCooldown: 2
+  wormJumpDist: 5
+  wormJumpStddv: 0.8
 --- !u!50 &8214556437673594758
 Rigidbody2D:
   serializedVersion: 4
@@ -177,3 +179,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3464783741431222948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8804159278277238752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b099eb2682501a42b0e217c48efc491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  iFrameAmount: 10
+--- !u!114 &695131099887538128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8804159278277238752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 377edcda8755d114c90c985b910fbe75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionKeys:
+  - Player
+  collisionActions:
+  - damage
+  damageAmount: 1
+  destroyOnDamage: 0

@@ -65,6 +65,16 @@ public class CommandManager : MonoBehaviour
         }
     }
     
+    public void addToAvailableRooms(string roomName){
+        if(!availableLocations.Contains(roomName)){
+            availableLocations.Add(roomName);
+        }
+    }
+    public void removeAvailableRoom(string roomName){
+        if(availableLocations.Contains(roomName)){
+            availableLocations.Remove(roomName);
+        }
+    }
     private void setupDevTest(){
         LevelManager lm = LevelManager.Instance;
         foreach(Room r in lm.getRooms()){
@@ -73,12 +83,15 @@ public class CommandManager : MonoBehaviour
             // }
         }
         allowedLocations = lm.getRoomNames();
-        availableLocations.Add("Documents");
-        allowedWeapons.Add("gun");
-        allowedWeapons.Add("knife");
+        // availableLocations.Add("Documents");
+        // allowedWeapons.Add("gun");
+        // allowedWeapons.Add("knife");
         devState = true;
     }
 
+    public List<string> getAvailableRooms(){
+        return availableLocations;
+    }
     //returns:
     //-1: no command available or stated command is not valid (like mkdir)
     //return of execute(): otherwise
@@ -120,7 +133,7 @@ public class CommandManager : MonoBehaviour
                     print("cd: not enough arguments");
                     return 1;
                 }
-                if(!allowedLocations.Contains(arguments[0])){
+                if(!availableLocations.Contains(arguments[0])){
                     print("argument not allowed");
                     return 2;
                 }
