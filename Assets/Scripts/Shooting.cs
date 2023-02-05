@@ -22,8 +22,8 @@ public class Shooting : MonoBehaviour
         // continuous firing?
         if(gunHeat <= 0)
         {
-            Shoot();
             gunHeat = 0.20f;
+            Shoot();
         } 
         else
         {
