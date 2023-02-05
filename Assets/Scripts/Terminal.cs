@@ -113,6 +113,7 @@ public class Terminal : MonoBehaviour
             else
             {
                 // Progresses the text scrolling
+                // Progresses the text scrolling
                 timeToUpdate--;
                 if (timeToUpdate == 0)
                 {
@@ -191,12 +192,13 @@ public class Terminal : MonoBehaviour
             }
             displayedText.text = "C:Alex:-$ " + curWord;
         }
-        else if (Time.time - startTime >= 3)
+        else if (Time.time - startTime >= 1.5f)
         {
             terminalObject.SetActive(false);
         }
     }
 
+    // Shifts Terminal lines upward
     private void shiftLines()
     {
         displayedText = texts[atTxt % texts.Count];
@@ -224,6 +226,7 @@ public class Terminal : MonoBehaviour
         reading = true;
     }
 
+    // Enables Writing
     public void beginWriting()
     {
         if (!reading)
