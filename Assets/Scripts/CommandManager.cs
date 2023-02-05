@@ -89,7 +89,7 @@ public class CommandManager : MonoBehaviour
             // }
         }
         allowedLocations = lm.getRoomNames();
-        availableLocations.Add("System");
+        // availableLocations.Add("System");
         // availableLocations.Add("Documents");
         // allowedWeapons.Add("gun");
         // allowedWeapons.Add("knife");
