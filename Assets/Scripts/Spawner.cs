@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        activate();
+        // activate();
     }
 
     // Update is called once per frame
@@ -40,10 +40,14 @@ public class Spawner : MonoBehaviour
         return true;
     }
 
-    private void activate()
+    public void activate()
     {
         timeOfLastSpawn = Time.time;
         cooldown = initCooldown;
         active = true;
     }
+    public void deactivate(){
+        active = false;
+    }
+
 }

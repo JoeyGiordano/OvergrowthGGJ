@@ -65,9 +65,22 @@ public class Room : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other){
         // print(roomStatus);
-        if(roomStatus != RoomStatus.cleared){
-            // CameraController.Instance.setPlayerPositionState(CameraController.PlayerPositionState.PlayerIsInRoom, this.transform);
+        if(other.gameObject == player.gameObject){
+            print("entering room");
+            print("game status: " + roomStatus.ToString());
+            foreach(Transform child in transform){
+                Spawner spawner = child.gameObject.GetComponent<Spawner>();
+                    if(spawner != null){
+                        if(roomStatus != RoomStatus.cleared){   
+                            spawner.activate();
+                        }
+                        else{
+                            spawner.deactivate();
+                        }
+                }
+            }
         }
+        
     }
     private void OnTriggerStay2D(Collider2D other){
         if(Input.GetKey(KeyCode.L)){

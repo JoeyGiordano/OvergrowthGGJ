@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] float flyAccel, flyAccelNoise, flyMaxSpeed;
     [SerializeField] float spiderJumpCooldown, spiderJumpDist, spiderJumpStddv;
-    [SerializeField] float wormCooldown = 10, wormForecast = 2, wormAttack = 1;
+    [SerializeField] float wormCooldown = 20, wormForecast = 2, wormAttack = 1;
 
     bool spiderJumping = false;
     float spiderNextY;
@@ -74,7 +74,7 @@ public class Enemy : MonoBehaviour
         {
             if (wormState == 0)
             {
-                wormCounter += Random.Range(0, 1) * Time.deltaTime;
+                wormCounter += Random.Range(0, 1);
                 if (wormCounter > wormCooldown)
                 {
                     wormState = 1;
