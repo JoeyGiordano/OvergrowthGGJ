@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
+    // Connection to terminal
+    [SerializeField] GameObject terminalObject;
+    [SerializeField] Terminal terminal;
 
     [SerializeField] Transform firePoint;
     [SerializeField] GameObject bulletPrefab;
@@ -13,12 +16,17 @@ public class Shooting : MonoBehaviour
     [SerializeField] string weaponType = "terminate-pellets";
     float gunHeat = 0f;
     GameObject player;
+
+    Hashtable weaponUnlocks;
     
     // Update is called once per frame
 
     void Start()
     {
         player = GameObject.Find("Player");
+        weaponUnlocks = new Hashtable();
+        weaponUnlocks.Add("terminate-pellets", true);
+        weaponUnlocks.Add("number-pellets", false);
     }
 
     void Update()
@@ -37,7 +45,19 @@ public class Shooting : MonoBehaviour
     }
 
     public void setWeapon(string weapon){
-        weaponType = weapon;
+        if ((bool) weaponUnlocks[weapon] == true)
+        {
+            weaponType = weapon;
+            string[] message = { weapon + " has been equipped" };
+            terminalObject.SetActive(true);
+            terminal.addToQueue(message);
+        }
+        else
+        {
+            string[] message = { weapon + " not yet unlocked" };
+            terminalObject.SetActive(true);
+            terminal.addToQueue(message);
+        }
     }
 
     void Shoot()
@@ -68,5 +88,10 @@ public class Shooting : MonoBehaviour
         //Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), bullet.GetComponent<BoxCollider2D>());
         //Destroy(bullet, 3f);
         //Destroy(bullet_rb, 3f);
+    }
+
+    public void addWeapon(string name)
+    {
+        weaponUnlocks[name] = true;
     }
 }
