@@ -20,6 +20,8 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         // activate();
+        terminalObject = GameObject.Find("Terminal");
+        terminal = GameObject.Find("TextScrollManager").GetComponent<Terminal>();
     }
 
     // Update is called once per frame
