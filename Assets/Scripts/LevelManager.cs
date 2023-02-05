@@ -45,15 +45,18 @@ public class LevelManager : MonoBehaviour
     }
     public void reinfectRoom(){
         List<string> availableRooms = CommandManager.Instance.getAvailableRooms();
-        string roomToReinfect = availableRooms[Random.Range(0, availableRooms.Count)];
-        print("reinfecting room: " + roomToReinfect);
-        foreach(Room rm in rooms){
-            if(rm.getRoomName() == roomToReinfect){
-                rm.setRoomStatus(Room.RoomStatus.infected);
-                CommandManager.Instance.removeAvailableRoom(roomToReinfect);
-                break;
+        if(availableRooms.Count > 0){
+            string roomToReinfect = availableRooms[Random.Range(0, availableRooms.Count)];
+            print("reinfecting room: " + roomToReinfect);
+            foreach(Room rm in rooms){
+                if(rm.getRoomName() == roomToReinfect){
+                    print("reinfect room: " + roomToReinfect);
+                    rm.resetEnemies();
+                    break;
+                }
             }
         }
+
 
     }
     //get all rooms and room names into list

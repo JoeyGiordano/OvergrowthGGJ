@@ -42,7 +42,7 @@ public class Health : MonoBehaviour
             if(tag == "Player")
             {
                 //Player.die?
-                Debug.Log("Player is Dead :/");
+                // Debug.Log("Player is Dead :/");
             }
             else if(tag == "Enemy")
             {
@@ -55,7 +55,7 @@ public class Health : MonoBehaviour
                 //Disable Spawner
                 Spawner spawner = this.gameObject.GetComponent<Spawner>();
                 spawner.deactivate();
-                Debug.Log("Spawner is Disabled :/");
+                // Debug.Log("Spawner is Disabled :/");
             }
         }
     }

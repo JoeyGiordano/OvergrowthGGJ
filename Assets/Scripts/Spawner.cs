@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
 
     float timeOfLastSpawn;
     float cooldown;
-    bool active;
+    public bool active = false;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +46,7 @@ public class Spawner : MonoBehaviour
     public void activate()
     {
         timeOfLastSpawn = Time.time;
-        cooldown = initCooldown;
+        cooldown = 0;
         active = true;
     }
     public void deactivate(){
