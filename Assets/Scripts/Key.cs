@@ -17,7 +17,7 @@ public class Key : MonoBehaviour
         
     }
 
-    public void OnCollisionEnter2D(Collision2D other){
+    public void OnTriggerEnter2D(Collider2D other){
         print(other);
         GameObject player = GameObject.Find("Player");
         if(other.gameObject == player){
